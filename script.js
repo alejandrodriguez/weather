@@ -113,7 +113,7 @@ async function callAPI(e) {
     weatherDiv.append(loading);
     try {
         const cityResponse = await fetch(
-            `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=2cbd2b7f85f97cf26d0a4ad15a72253f`
+            `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=2cbd2b7f85f97cf26d0a4ad15a72253f`
         );
         console.log("cityResponse: ", cityResponse);
         if (!cityResponse.ok) {
