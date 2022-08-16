@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Roboto&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    color: white;
+    background-image: linear-gradient(
+            rgba(255, 255, 255, 0.7),
+            rgba(0, 0, 0, 0.7)
+        ),
+        url("./img/default.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 0.3s ease-in-out;
+    text-shadow: 2px 2px 15px black;
+}
+
+body > * {
+    height: max(33.3vh, 250px);
+}
+
+.weather-info,
+.wrapper,
+.icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-info {
+    font-size: 72px;
+    gap: 20px;
+}
+
+.select-units {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 42px;
+}
+
+.select-units > * {
+    cursor: pointer;
+}
+
+.selected-unit {
+    text-decoration: underline;
+    transform: scale(1.3);
+}
+
+.icon-wrapper {
+    font-size: 48px;
+}
+
+h1 {
+    font-size: 82px;
+}
+
+input {
+    color: inherit;
+    padding: 20px;
+    border: 3px solid white;
+    border-radius: 50px;
+    outline: none;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+    width: 30vw;
+    text-align: center;
+}
+
+::placeholder {
+    color: white;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+form > button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
