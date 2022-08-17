@@ -45,7 +45,7 @@ function changeStyleWithId(id) {
             rgba(255, 255, 255, 0.7),
             rgba(0, 0, 0, 0.7)
             ),
-            url("./img/thunderstorm.jpg");`;
+            url("./img/thunderstorm.jpg")`;
         icon.src = "./img/icons/thunderstorm-icon.png";
     } else if ((id >= 300 && id <= 321) || (id >= 500 && id <= 531)) {
         document.body.style.backgroundImage = `
@@ -115,7 +115,6 @@ async function callAPI(e) {
         const cityResponse = await fetch(
             `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=2cbd2b7f85f97cf26d0a4ad15a72253f`
         );
-        console.log("cityResponse: ", cityResponse);
         if (!cityResponse.ok) {
             return;
         }
@@ -125,12 +124,10 @@ async function callAPI(e) {
         const weatherResponse = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2cbd2b7f85f97cf26d0a4ad15a72253f&units=imperial`
         );
-        console.log("weatherResponse: ", weatherResponse);
         if (!weatherResponse.ok) {
             return;
         }
         const weatherData = await weatherResponse.json();
-        console.log("weatherData: ", weatherData);
         tempInFarenheit = weatherData.main.temp;
         const weatherText = document.createElement("div");
         weatherText.textContent = tempInFarenheit.toFixed(0) + " °F";
