@@ -99,6 +99,7 @@ function changeStyleWithId(id) {
 
 async function callAPI(e) {
     e.preventDefault();
+    e.target.disabled = true;
     const prevWeatherDivClone = weatherDiv.cloneNode(true);
     const cityInput = document.querySelector("#city");
     const city = cityInput.value;
@@ -159,6 +160,7 @@ async function callAPI(e) {
         weatherDiv = prevWeatherDivClone;
         return;
     }
+    e.target.disabled = false;
 }
 
 submitBtn.addEventListener("click", e => callAPI(e));

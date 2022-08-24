@@ -104,23 +104,24 @@ form > button {
     cursor: pointer;
 }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 64px;
-    }
+@media (max-width: 1000px) {
     input {
         width: 80vw;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 36px;
+    }
+    input {
+        width: 90vw;
+        padding: 10px;
     }
     .wrapper {
         margin: 0 20px;
     }
     form {
         flex-direction: column;
-    }
-}
-
-@media (max-width: 1000px) {
-    input {
-        width: 70vw;
     }
 }
