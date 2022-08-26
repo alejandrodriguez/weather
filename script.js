@@ -1,13 +1,15 @@
 const submitBtn = document.querySelector("#submit");
 let weatherDiv = document.querySelector(".weather-info");
-let tempInFarenheit;
+let tempInFahrenheit;
 
 function changeUnits(units) {
     let newTemperature;
     switch (units) {
-        case "farenheit":
-            newTemperature = tempInFarenheit.toFixed(0) + " °F";
-            document.querySelector(".farenheit").classList.add("selected-unit");
+        case "fahrenheit":
+            newTemperature = tempInFahrenheit.toFixed(0) + " °F";
+            document
+                .querySelector(".fahrenheit")
+                .classList.add("selected-unit");
             document
                 .querySelector(".celsius")
                 .classList.remove("selected-unit");
@@ -15,19 +17,19 @@ function changeUnits(units) {
             break;
         case "celsius":
             newTemperature =
-                ((tempInFarenheit - 32) * (5 / 9)).toFixed(0) + " °C";
+                ((tempInFahrenheit - 32) * (5 / 9)).toFixed(0) + " °C";
             document.querySelector(".celsius").classList.add("selected-unit");
             document
-                .querySelector(".farenheit")
+                .querySelector(".fahrenheit")
                 .classList.remove("selected-unit");
             document.querySelector(".kelvin").classList.remove("selected-unit");
             break;
         case "kelvin":
             newTemperature =
-                ((tempInFarenheit - 32) * (5 / 9) + 273.15).toFixed(0) + " K";
+                ((tempInFahrenheit - 32) * (5 / 9) + 273.15).toFixed(0) + " K";
             document.querySelector(".kelvin").classList.add("selected-unit");
             document
-                .querySelector(".farenheit")
+                .querySelector(".fahrenheit")
                 .classList.remove("selected-unit");
             document
                 .querySelector(".celsius")
@@ -129,16 +131,16 @@ async function callAPI(e) {
             return;
         }
         const weatherData = await weatherResponse.json();
-        tempInFarenheit = weatherData.main.temp;
+        tempInFahrenheit = weatherData.main.temp;
         const weatherText = document.createElement("div");
-        weatherText.textContent = tempInFarenheit.toFixed(0) + " °F";
+        weatherText.textContent = tempInFahrenheit.toFixed(0) + " °F";
         weatherText.id = "weather-text";
         const selectUnits = document.createElement("div");
         selectUnits.classList.add("select-units");
-        const farenheit = document.createElement("p");
-        farenheit.textContent = "°F";
-        farenheit.classList.add("farenheit", "selected-unit");
-        farenheit.addEventListener("click", () => changeUnits("farenheit"));
+        const fahrenheit = document.createElement("p");
+        fahrenheit.textContent = "°F";
+        fahrenheit.classList.add("fahrenheit", "selected-unit");
+        fahrenheit.addEventListener("click", () => changeUnits("fahrenheit"));
         const celsius = document.createElement("p");
         celsius.textContent = "°C";
         celsius.classList.add("celsius");
@@ -147,7 +149,7 @@ async function callAPI(e) {
         kelvin.textContent = "K";
         kelvin.classList.add("kelvin");
         kelvin.addEventListener("click", () => changeUnits("kelvin"));
-        selectUnits.append(celsius, farenheit, kelvin);
+        selectUnits.append(celsius, fahrenheit, kelvin);
         loading.remove();
         changeStyleWithId(weatherData.weather[0].id);
         document.querySelector("h1").textContent = weatherData.name;
